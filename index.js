@@ -33,7 +33,7 @@ closeIcon.addEventListener("click", () => {
 });
 
 addBtn.addEventListener("click", (e) => {
-  console.log(e.target.innerText);
+  // console.log(e.target.innerText);
   e.preventDefault();
   let noteTitle = titleTag.value;
   let noteDesc = descTag.value;
@@ -75,10 +75,10 @@ addBtn.addEventListener("click", (e) => {
             icon: "success",
             allowOutsideClick: false,
           }).then((result1) => {
-            console.log("here = ", result1);
+            // console.log("here = ", result1);
             if (result1.isConfirmed) {
-              console.log("ss", updateId);
-              console.log("ss", notes);
+              // console.log("ss", updateId);
+              // console.log("ss", notes);
               notes[updateId] = noteInfo; // updating specified note
               localStorage.setItem("notes", JSON.stringify(notes));
               showNotes();
@@ -108,7 +108,7 @@ addBtn.addEventListener("click", (e) => {
 function showNotes() {
   // Remove duplicate note
   document.querySelectorAll(".note").forEach((note) => note.remove());
-  console.log("show notes", notes.length);
+  // console.log("show notes", notes.length);
   notes.forEach((note, index) => {
     let liTag = `<li class="note">
                         <div class="details">
@@ -146,7 +146,7 @@ function showMenu(element) {
 }
 
 function deleteNote(noteId, title) {
-  console.log(noteId, title);
+  // console.log(noteId, title);
   Swal.fire({
     title: "Do you want to delete note?",
     text: `Title : ${title}`,
@@ -163,7 +163,7 @@ function deleteNote(noteId, title) {
         icon: "success",
         allowOutsideClick: false,
       }).then((result1) => {
-        console.log("here = ", result1);
+        // console.log("here = ", result1);
         if (result1.isConfirmed) {
           notes.splice(noteId, 1); // removing selected note from array/tasks
           localStorage.setItem("notes", JSON.stringify(notes));
@@ -182,7 +182,7 @@ function deleteNote(noteId, title) {
 function updateNote(noteId, title, desc) {
   isUpdate = true;
   updateId = noteId;
-  console.log(noteId, title, desc);
+  // console.log(noteId, title, desc);
   addBox.click();
   titleTag.value = title;
   descTag.value = desc;
